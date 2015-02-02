@@ -1,0 +1,54 @@
+using System;
+
+
+
+
+
+
+
+
+namespace _01.CofeeMachine
+{
+    class CofeeMachine
+    {
+        static void Main()
+        {
+            
+                      
+            int quantityN1 = int.Parse(Console.ReadLine());           
+            int quantityN2 = int.Parse(Console.ReadLine());           
+            int quantityN3 = int.Parse(Console.ReadLine());          
+            int quantityN4 = int.Parse(Console.ReadLine());          
+           int quantityN5 = int.Parse(Console.ReadLine());
+           double amount = double.Parse(Console.ReadLine());            
+            double price = double.Parse(Console.ReadLine());
+
+          
+
+   double machineTotalMoney = quantityN1*0.05 + quantityN2*0.10 + quantityN3*0.20 + quantityN4*0.50 +quantityN5*1.00;
+          
+
+           if(amount>=price)
+           {
+               double change = amount - price;
+               if(change<=machineTotalMoney)
+               {
+                   Console.WriteLine("Yes {0:F2}", machineTotalMoney-change);
+               }
+               else
+               {
+                   Console.WriteLine("No {0:F2}",change-machineTotalMoney);
+               }
+               
+           }
+           if (amount < price)
+           {
+               Console.WriteLine("More {0:F2}",price-amount);
+           }
+
+        }
+    }
+}
+
+
+
