@@ -1,0 +1,37 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Numerics;
+
+namespace NightMareOnCodeStreet
+{
+    class Nightmare
+    {
+        static void Main()
+        {
+            string number = Console.ReadLine();
+            BigInteger dAmount = 0;
+            BigInteger sum = 0;
+
+            for (int i = 0; i <number.Length; i++)
+            {
+                if (char.IsDigit(number[i]))  //Проверка дали символа е число. МОЖЕ ДА НЕ Е ЧИСЛО!!!!!;
+                {
+                    if ((i % 2) != 0)
+                    {
+                        sum += BigInteger.Parse(number[i].ToString());
+                        dAmount++;
+                    }
+                }
+                else
+                {
+                    continue;
+                }
+            }
+            Console.Write("{0} {1}",dAmount, sum);
+          
+        }
+    }
+}
