@@ -1,0 +1,160 @@
+  static void Main()
+    {//Decimal to binary
+        Console.Write("Please enter a decimal number: ");
+        BigInteger decimalNumber = BigInteger.Parse(Console.ReadLine());
+
+        BigInteger remainder;
+        string result = string.Empty;
+        if (decimalNumber == 0)
+        {
+            result = "0";
+        }
+        else
+        {
+
+            while (decimalNumber > 0)
+            {
+                remainder = decimalNumber % 2;
+                decimalNumber /= 2;
+                result = remainder.ToString() + result;
+            }
+        }
+        Console.WriteLine("Binary:  {0}", result);
+
+
+
+
+//Binary to decimal
+
+
+ string userInput = Console.ReadLine();
+        BigInteger binaryNumber = BigInteger.Parse(userInput);
+        BigInteger decimalNumber = 0;
+        BigInteger additive = 1;
+        
+        decimalNumber = binaryNumber % 10;
+        binaryNumber /= 10;
+        BigInteger result = decimalNumber;
+        for (int i = 0; i < userInput.Length-1; i++)
+        {
+            additive *= 2;
+            decimalNumber = binaryNumber % 10;
+            binaryNumber /= 10;
+            decimalNumber *= additive;
+            result += decimalNumber;
+            }
+        Console.WriteLine("{0}",result);
+        
+        
+        
+        
+        
+        //Hexadecimal to decimal
+        
+        
+        
+                Console.Write("Please, enter a hex number: ");
+        string hex = Console.ReadLine().ToUpper();
+
+        bool isNegative = false;
+        if (hex.StartsWith("-"))
+        {
+            isNegative = true;
+            hex = hex.Replace("-", "");
+        }
+
+        char[] reverseHex = hex.ToCharArray();
+        Array.Reverse(reverseHex);
+
+        BigInteger sum = 0;
+        int power = 0;
+        foreach (char digit in reverseHex)
+        {
+            switch (digit)
+            {
+                case '0': sum += 0 * (BigInteger)Math.Pow(16, power); break;
+                case '1': sum += 1 * (BigInteger)Math.Pow(16, power); break;
+                case '2': sum += 2 * (BigInteger)Math.Pow(16, power); break;
+                case '3': sum += 3 * (BigInteger)Math.Pow(16, power); break;
+                case '4': sum += 4 * (BigInteger)Math.Pow(16, power); break;
+                case '5': sum += 5 * (BigInteger)Math.Pow(16, power); break;
+                case '6': sum += 6 * (BigInteger)Math.Pow(16, power); break;
+                case '7': sum += 7 * (BigInteger)Math.Pow(16, power); break;
+                case '8': sum += 8 * (BigInteger)Math.Pow(16, power); break;
+                case '9': sum += 9 * (BigInteger)Math.Pow(16, power); break;
+                case 'A': sum += 10 * (BigInteger)Math.Pow(16, power); break;
+                case 'B': sum += 11 * (BigInteger)Math.Pow(16, power); break;
+                case 'C': sum += 12 * (BigInteger)Math.Pow(16, power); break;
+                case 'D': sum += 13 * (BigInteger)Math.Pow(16, power); break;
+                case 'E': sum += 14 * (BigInteger)Math.Pow(16, power); break;
+                case 'F': sum += 15 * (BigInteger)Math.Pow(16, power); break;
+                default:
+                    Console.WriteLine("Invalid number");
+                    return;
+            }
+            power++;
+        }
+
+        if (isNegative)
+        {
+            sum = -sum;
+        }
+
+        Console.WriteLine("decimal number: {0}", sum);
+    }
+}
+//Decimal to hexadecimal
+
+
+
+        Console.Write("Please, enter an integer number: ");
+        long n = long.Parse(Console.ReadLine());
+        bool isNegative = n < 0;
+        if (isNegative)
+        {
+            n = -n;
+        }
+        string hexReversed = String.Empty;
+
+        do
+        {
+            switch (n % 16)
+            {
+                case 0: hexReversed += "0"; break;
+                case 1: hexReversed += "1"; break;
+                case 2: hexReversed += "2"; break;
+                case 3: hexReversed += "3"; break;
+                case 4: hexReversed += "4"; break;
+                case 5: hexReversed += "5"; break;
+                case 6: hexReversed += "6"; break;
+                case 7: hexReversed += "7"; break;
+                case 8: hexReversed += "8"; break;
+                case 9: hexReversed += "9"; break;
+                case 10: hexReversed += "A"; break;
+                case 11: hexReversed += "B"; break;
+                case 12: hexReversed += "C"; break;
+                case 13: hexReversed += "D"; break;
+                case 14: hexReversed += "E"; break;
+                case 15: hexReversed += "F"; break;
+            }
+            n /= 16;
+        } while (n != 0);
+
+        if (isNegative)
+        {
+            hexReversed += "-";
+        }
+
+        char[] charHexadecimal = hexReversed.ToCharArray();
+        Array.Reverse(charHexadecimal);
+        string hexString = new string(charHexadecimal);
+
+        Console.WriteLine();
+        Console.WriteLine("Hexadecimal representation: {0}", hexString);
+    }
+            
+}
+
+
+    }
+}
