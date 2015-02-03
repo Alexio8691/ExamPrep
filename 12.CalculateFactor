@@ -1,0 +1,25 @@
+class Calculate
+{
+    static void Main()
+    {
+        int n = int.Parse(Console.ReadLine());
+        int k = int.Parse(Console.ReadLine());
+        BigInteger result = 0;
+
+        result = Factor(n) / (Factor(k) * Factor(n - k));
+        Console.WriteLine("{0}", result);
+    }
+
+
+    static BigInteger Factor(int number)
+    {
+        BigInteger factor = 1; 
+        for (int i = 1; i <= number; i++)
+        {
+             factor *= i;
+           
+        }
+         return factor;
+    }
+
+}
